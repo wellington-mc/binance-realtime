@@ -1,69 +1,61 @@
-# React + TypeScript + Vite
+# Binance Realtime (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação em React que acompanha, em tempo real, os tickers da Binance via WebSocket, com tabela e cards, mini‑gráfico (sparkline), variação 24h e conversão para BRL.
 
-Currently, two official plugins are available:
+## Recursos
+- Visualização em abas: Tabela e Cards.
+- Sparkline por par (histórico curto dos últimos preços).
+- Destaque visual quando o preço sobe/desce.
+- Conversão USD → BRL usando USDT/BRL da própria Binance (REST).
+- Busca de pares inteligente: aceita `BTCUSDT`, `BTC/USDT` ou apenas `BTC` (assume USDT).
+- Lista de pares persistida no `localStorage` e botão de reset.
+- Sidebar colapsável e layout responsivo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Como rodar local
+Pré‑requisitos: Node 18+.
 
-## Expanding the ESLint configuration
+```bash
+# instalar deps
+npm install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# ambiente de desenvolvimento
+npm run dev
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# build de produção
+npm run build
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# pré‑visualizar build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Se você prefere Yarn:
+```bash
+yarn
+yarn dev
 ```
+
+## Deploy (GitHub Pages)
+Este repositório já está preparado para Pages:
+
+- `vite.config.ts` com `base: '/binance-realtime/'`.
+- Workflow em `.github/workflows/deploy.yml` que faz build e publica em Pages a cada push na `main`.
+
+Após o primeiro push:
+1. Vá em Settings → Pages → Source: GitHub Actions (se ainda não estiver).
+2. Aguarde o workflow finalizar. A URL ficará:
+   `https://wellington-mc.github.io/binance-realtime/`
+
+Opcionalmente, você pode usar `gh-pages` manualmente:
+```bash
+npm run build
+npm run deploy
+```
+
+## Observações técnicas
+- WebSocket: stream `!ticker@arr` multi‑par da Binance.
+- Conversão BRL: `GET /api/v3/ticker/price?symbol=USDTBRL`.
+- O app não exige API keys.
+
+## Licença
+Uso livre para fins de portfólio e estudos. Se for publicar, cite o repositório.
+
