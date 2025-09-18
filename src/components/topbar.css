@@ -1,0 +1,8 @@
+.tb{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;margin-bottom:12px;border-radius:14px;background:linear-gradient(180deg,rgba(18,24,35,.75),rgba(12,16,24,.75));border:1px solid rgba(255,255,255,.06);backdrop-filter: blur(6px)}
+.tb__left{display:flex;align-items:center;gap:12px}
+.tb__title{font-weight:700;letter-spacing:.2px}
+.tb__right{display:flex;align-items:center;gap:10px}
+.tb__search{position:relative}
+.tb__search input{all:unset;background:#0f141b;border:1px solid rgba(255,255,255,.06);padding:8px 12px;border-radius:10px;min-width:240px}
+.tb__btn{all:unset;cursor:pointer;background:#0f141b;border:1px solid rgba(255,255,255,.06);padding:8px;border-radius:10px}
+.tb__btn:hover{background:#121826}

@@ -1,0 +1,11 @@
+.tk{display:flex;flex-direction:column;gap:10px;padding:14px 16px;border-radius:14px;background:linear-gradient(180deg,rgba(18,24,35,.9),rgba(12,16,24,.85));border:1px solid rgba(255,255,255,.06);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.tk__header{display:flex;align-items:center;justify-content:space-between}
+.tk__symbol{font-weight:700;letter-spacing:.3px}
+.tk__badge{font-size:.95rem;padding:2px 8px;border-radius:10px;border:1px solid currentColor}
+.tk__badge.up{color:#37b24d}
+.tk__badge.down{color:#e03131}
+.tk__main{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.tk__price{font-size:1.35rem;font-variant-numeric:tabular-nums}
+.tk__subprice{font-size:.9rem;opacity:.85}
+.tk__meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:.9rem;opacity:.9}
+.tk__meta span{opacity:.7;margin-right:6px}

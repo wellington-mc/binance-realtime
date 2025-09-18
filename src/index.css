@@ -1,0 +1,36 @@
+:root {
+  --bg-0: #0b0e13;
+  --bg-1: #0f141b;
+  --text: #e6eaf2;
+  --muted: #9aa7b2;
+  --card: #121823;
+  --border: #1e2633;
+  --accent: #22d3ee; /* cyan */
+  --green: #10b981; /* emerald */
+  --red: #e03131;
+
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+  color-scheme: dark;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 10% -10%, #152033 0%, transparent 60%),
+             radial-gradient(1200px 800px at 100% 0%, #101826 0%, transparent 60%),
+             var(--bg-0);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+code, .monospace { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
